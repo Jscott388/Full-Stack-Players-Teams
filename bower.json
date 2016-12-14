@@ -1,0 +1,22 @@
+{
+  "name": "Full-MEAN-Players-Teams",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Joshua Scott <josh.scott388@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Jscott388/Full-Stack-Players-Teams",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.0",
+    "angular-route": "^1.6.0",
+    "angular-material": "^1.1.1"
+  }
+}

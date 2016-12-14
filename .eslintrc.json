@@ -1,0 +1,96 @@
+{
+    "plugins": ["angular"],
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true,
+        "node": true
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
+    "globals": {
+        "angular": true
+    },
+    "rules": {
+        "no-use-before-define": 0,
+        "complexity": 0,
+        "no-extend-native": 0,
+        "no-process-env": 0,
+        "init-declarations": 0,
+        "no-restricted-modules": 0,
+        "no-sync": 0,
+        "no-undef-init": 0,
+        "no-inline-comments": 0,
+        "no-new-object": 0,
+        "no-ternary": 0,
+        "padded-blocks": 0,
+        "no-inner-declarations": 0,
+        "id-length": 0,
+        "id-match": 0,
+        "no-underscore-dangle": 0,
+        "sort-vars": 0,
+        "max-statements": 0,
+        "max-params": 0,
+        "require-jsdoc": 0,
+        "comma-dangle": 0,
+        //****************************************************************** Angular
+        // Disabled
+        "angular/di-order": 0,
+        "angular/directive-name": 0,
+        "angular/filter-name": 0,
+        "angular/foreach": 0,
+        "angular/function-type": 0,
+        "angular/module-name": 0,
+        "angular/no-angular-mock": 0,
+        "angular/no-controller": 0,
+        "angular/no-digest": 0,
+        "angular/no-service-method": 0,
+        "angular/no-services": 0,
+        "angular/rest-service": 0,
+        "angular/service-name": 0,
+        "angular/watchers-execution": 0,
+        "angular/directive-restrict": 0,
+        "angular/file-name": 0,
+        // Disabled because of bug (Module.name not supported)
+        "angular/module-dependency-order": 0,
+        // Disabled because of bug
+        "angular/component-limit": 0,
+
+        // Warning
+        "angular/deferred": 1,
+        "angular/no-inline-template": 1,
+
+        // Error
+        "angular/angularelement": 2,
+        "angular/controller-as": 2,
+        "angular/controller-as-route": 2,
+        "angular/controller-as-vm": [2, "vm"],
+        "angular/controller-name": [2, "/[A-Z].*Controller$/"],
+        "angular/definedundefined": 2,
+        "angular/di": [2, "function"],
+        "angular/document-service": 2,
+        "angular/empty-controller": 2,
+        "angular/interval-service": 2,
+        "angular/json-functions": 2,
+        "angular/log": 2,
+        "angular/module-getter": 2,
+        "angular/module-setter": 2,
+        "angular/no-cookiestore": 2,
+        "angular/no-jquery-angularelement": 2,
+        "angular/no-private-call": 1,
+        "angular/on-watch": 2,
+        "angular/timeout-service": 2,
+        "angular/typecheck-array": 2,
+        "angular/typecheck-date": 2,
+        "angular/typecheck-function": 2,
+        "angular/typecheck-number": 2,
+        "angular/typecheck-object": 2,
+        "angular/typecheck-string": 2,
+        "angular/window-service": 2,
+        "angular/no-http-callback": 2
+    }
+}
