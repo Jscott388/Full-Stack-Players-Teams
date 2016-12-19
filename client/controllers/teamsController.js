@@ -1,5 +1,5 @@
-(function() {
-'use strict';
+(function () {
+    'use strict';
 
     angular
         .module('app')
@@ -7,19 +7,30 @@
 
     function TeamController(teamFactory) {
         var vm = this;
-        vm.teams = [];
-    
-        teamFactory.getTeam(function(team){
-            vm.teams = teams;
-        })
+        // vm.teams = [];
 
-        vm.addTeam = function(){
-            teamFactory.addTeam(vm.newTeam)
-            vm.newTeam = {};
+        fetchTeams();
+
+        function fetchTeams() {
+            teamFactory.getTeam().then(function(teams){
+                vm.teams = teams;
+            }) 
         }
 
-        vm.deleteTeam = function($index){
-            teamFactory.deleteTeam($index);
+        vm.addTeam = function () {
+            teamFactory.addTeam(vm.newTeam)
+                .then(function(){
+                    vm.teams.push(vm.newTeam)
+                    vm.newTeam = {};
+                    fetchTeams();
+                })
+        }
+
+        vm.deleteTeam = function (teamId) {
+            teamFactory.deleteTeam(teamId)
+                .then(function(){
+                    fetchTeams();
+                })
         }
     }
 })();

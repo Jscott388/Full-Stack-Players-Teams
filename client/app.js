@@ -19,6 +19,11 @@
                 controller: 'TeamController',
                 controllerAs: 'vm'
             })
+            .when('/associations', {
+                templateUrl: 'partials/associations.html',
+                controller: 'AssociationsController',
+                controllerAs: 'vm'
+            })
             .otherwise({
                 redirectTo: '/'
             });

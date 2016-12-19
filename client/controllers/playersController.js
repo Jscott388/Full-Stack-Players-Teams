@@ -1,5 +1,5 @@
-(function() {
-'use strict';
+(function () {
+    'use strict';
 
     angular
         .module('app')
@@ -7,18 +7,29 @@
 
     function PlayerController(playerFactory) {
         var vm = this;
-        vm.players = playerFactory.players;
-    
-        playerFactory.getPlayers();
-            
-        vm.addPlayer = function(){
-            playerFactory.addPlayer(vm.newPlayer, function(player){
-                vm.players.push(player);
-            })
-            vm.newPlayer = {};
+        // vm.players = [];
+
+        fetchPlayers();
+
+        function fetchPlayers() {
+              playerFactory.getPlayers().then(function(players){
+                vm.players = players;
+            });
         }
-        vm.DeletePlayer = function($index){
-            playerFactory.DeletePlayer($index);
+
+        vm.addPlayer = function (newPlayer) {
+            playerFactory.addPlayer(vm.newPlayer)
+                .then(function () {
+                    vm.players.push(vm.newPlayer)
+                    vm.newPlayer = {};
+                    fetchPlayers();
+                })
+        }
+        vm.DeletePlayer = function(playerId){
+            playerFactory.DeletePlayer(playerId)
+                .then(function(){
+                    fetchPlayers();
+                });
         }
     }
 })();

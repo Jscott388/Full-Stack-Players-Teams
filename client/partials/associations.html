@@ -1,0 +1,25 @@
+<div layout="column" ng-cloak class="md-inline-form">
+    {{vm}}
+    <md-content layout-padding>
+        <md-select placeholder="Assign player to a team" ng-model="vm.newAssoc.player">
+             <md-option value="{{player.name}}" ng-repeat="player in vm.players">{{player.name}}</md-option>
+        </md-select>
+        <md-select ng-model='vm.newAssoc.team' placeholder='Assign team to a player'>
+            <md-option ng-repeat='team in vm.teams' value="{{team.name}}">{{team.name}}</md-option>
+        </md-select>
+        <md-button ng-click="vm.create()" class="md-raised md-primary">Assign Player to Team</md-button>
+    </md-content>
+</div>
+<div>
+    <md-content layout-padding>
+        <md-list flex>
+            <md-subheader class="md-no-sticky">Main List</md-subheader>
+            <md-list-item class="noright" ng-repeat='player in vm.players' class="noright">
+                <i class="material-icons md-48 md-avatar">account_circle</i>
+                <div class="md-list-item-text" layout='column'>
+                    <h2>{{ player.name }}</h2>
+                    <h4>Team: {{ player._team.name}}</h4>
+                </div>
+            </md-list-item>
+    </md-content>
+</div>

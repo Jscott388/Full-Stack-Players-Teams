@@ -6,7 +6,7 @@ mongoose.Promise = global.Promise;
 module.exports = {
     index: function (req, res) {
         Player.find({})
-            .populate('team')
+            .populate('_team')
             .exec(function (err, players) {
                 if (err) {
                     console.log(err);
@@ -30,9 +30,7 @@ module.exports = {
             });
     },
     delete: function (req, res) {
-        Player.remove({
-                _id: req.params.id
-            })
+        Player.findByIdAndRemove(req.params.id)
             .then(function () {
                 res.json(true);
             })
@@ -43,26 +41,7 @@ module.exports = {
             });
     },
     update: function (req, res) {
-        Player.update({
-                _id: req.params.id
-            }, req.body)
-            .then(function () {
-                res.json(true);
-            })
-            .catch(function (err) {
-                console.log(err);
-                res.status(500);
-                res.json(err);
-            });
-    },
-    removeTeam: function (req, res) {
-        Player.update({
-                _id: req.params.id
-            }, {
-                $unset: {
-                    "team": ""
-                }
-            })
+        Player.findByIdAndUpdate(req.params.id, {$set: {name: req.body.name}})
             .then(function () {
                 res.json(true);
             })

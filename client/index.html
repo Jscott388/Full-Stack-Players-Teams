@@ -7,10 +7,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Players and Teams</title>
     <link rel="stylesheet" href="angular-material/angular-material.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 </head>
 
 <body>
-    <a href="players">Players</a> 
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>
+          <span>Players and Teams</span>
+        </h2>
+        <span flex></span>
+        <md-button href="/players"class="md-raised" aria-label="Players">
+            Players
+        </md-button>
+        <md-button href='/teams' class="md-raised" aria-label="Teams">
+            Teams
+        </md-button>
+        <md-button href='/associations' class="md-raised" aria-label="Associations">
+            Associations
+        </md-button>
+      </div>
+    </md-toolbar>
     <div ng-view=""></div>
 
 
@@ -24,6 +42,7 @@
     <script src="factories/teamFactory.js" charset="utf-8"></script>
     <script src="controllers/playersController.js" charset="utf-8"></script>
     <script src="controllers/teamsController.js" charset="utf-8"></script>
+    <script src='controllers/associationsController.js' charset="utf-8"></script>
 </body>
 
 </html>

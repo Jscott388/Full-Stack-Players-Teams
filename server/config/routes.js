@@ -15,7 +15,5 @@ module.exports = function (app) {
     app.get('/teams', Team.index);
     app.post('/teams', Team.create);
     app.delete('/teams/:id', Team.delete);
-    app.post('/players/:id/remove-team', Player.removeTeam);
-
-
+    app.post('/teams/assoc', Team.assoc);
 }
