@@ -1,11 +1,10 @@
 <div layout="column" ng-cloak class="md-inline-form">
-    {{vm}}
     <md-content layout-padding>
         <md-select placeholder="Assign player to a team" ng-model="vm.newAssoc.player">
-             <md-option value="{{player.name}}" ng-repeat="player in vm.players">{{player.name}}</md-option>
+             <md-option ng-repeat="player in vm.players" ng-value="player._id" >{{player.name}}</md-option>
         </md-select>
         <md-select ng-model='vm.newAssoc.team' placeholder='Assign team to a player'>
-            <md-option ng-repeat='team in vm.teams' value="{{team.name}}">{{team.name}}</md-option>
+            <md-option ng-repeat='team in vm.teams' ng-value="team._id">{{team.name}}</md-option>
         </md-select>
         <md-button ng-click="vm.create()" class="md-raised md-primary">Assign Player to Team</md-button>
     </md-content>

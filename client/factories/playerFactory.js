@@ -8,7 +8,7 @@
     playerFactory.$inject = ['$http']
     function playerFactory($http) {
         var factory = {};
- 
+
         factory.getPlayers = getPlayers;
         factory.addPlayer = addPlayer;
         factory.DeletePlayer = DeletePlayer;

@@ -25,8 +25,8 @@
         function deleteTeam(id){
             return $http.delete('/teams/' + id).then(handleSuccess, handleError("Error deleting team"));
         }
-        function assign(assoc_info){
-            return $http.post('/teams/assoc', assoc_info).then(handleSuccess, handleError("Error assocation"));
+        function assign(assoc){
+            return $http.post('/teams/assoc', assoc).then(handleSuccess, handleError("Error assocation"));
         }
           function handleSuccess(res) {
             return res.data;
